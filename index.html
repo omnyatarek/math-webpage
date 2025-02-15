@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Flavors&family=M+PLUS+Rounded+1c&family=Marcellus&family=Mystery+Quest&family=Rubik+Puddles&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 2px 2px 5px silver;
+            border-radius: 10px;
+        }
+        input {
+            width: 80px;
+            border: 2px solid #444647;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+            
+        }
+        .card{
+            width: 80%;
+            margin-top: 50px;
+            margin-left: 120px;
+            box-shadow: 2px 2px 5px silver;
+            
+        }
+    </style>
+</head>
+<body>
+
+<header>
+<h1 class="p-5">Math</h1>
+<p style="font-size: 30px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.242);" class="text-center ">Make math simpler</p>
+</header>
+<div class="card ">
+    <div style="background-color:#FF7F80;" class="card-header text-center fw-bold">Addtion Calculator</div>
+    <div class="card-body">  <input  type="number" id="num1" onkeyup="calculateSum()">
+        <button onclick="calculateSum()">+</button>
+        <input type="number" id="num2" onkeyup="calculateSum()">
+        <label>=</label>
+        <label id="result"></label></div>
+  </div>
+  
+  <div class="card ">
+    <div style="background-color:#FF7F80;" class="card-header text-center fw-bold">Circle calculator</div>
+    <div class="card-body">
+        <div class="p-3 align-self-end"><img src="./images/Parts of The Circle.jfif" width="200px"></div> 
+        <button id="Circle_a" onclick="showArea()"style="border: 1px solid #FDCC6F; border-radius: 10px;
+   background: transparent; cursor: pointer;">The Area</button>
+        <button id="Circle_b" onclick="showCircumference()"style="border: 1px solid #FDCC6F; border-radius: 10px;
+   background: transparent; cursor: pointer;">The Circumference</button>
+   <br>
+        <div id="info" style="display: none;"></div>
+    </div>
+   
+</div>
+
+<div class="card ">
+    <div style="background-color:#FF7F80;" class="card-header text-center fw-bold">Square Calculator</div>
+    <div class="card-body">
+        <div class="p-3 align-self-end"><img src="./images/Area and Perimeter Poster.jfif" width="250px"></div> 
+        <button id="Square_a" onclick="showPerimeter_s()" style="border: 1px solid #FDCC6F; border-radius: 10px;
+   background: transparent; cursor: pointer;">The Perimeter</button>
+        <button id="Square_b" onclick="showArea_s()" style="border: 1px solid #FDCC6F; border-radius: 10px;
+   background: transparent; cursor: pointer;">The Area</button>
+        <br>
+        <div id="square" style="display: none;"></div>
+    </div>
+   
+</div>
+
+
+<div class="card ">
+    <div style="background-color:#FF7F80;" class="card-header text-center fw-bold">Triangle Calculator</div>
+    <div class="card-body">
+        <div class="p-3 align-self-end"><img src="./images/Area and perimeter of triangles.jfif" width="250px"></div> 
+        <button id="Square_a" onclick="showPerimeter_t()" style="border: 1px solid #FDCC6F; border-radius: 10px;
+   background: transparent; cursor: pointer;">The Perimeter</button>
+        <button id="Square_b" onclick="showArea_t()" style="border: 1px solid #FDCC6F; border-radius: 10px;
+   background: transparent; cursor: pointer;">The Area</button>
+        <br>
+        <div id="triangle" style="display: none;"></div>
+    </div>
+   
+</div>
+
+</div>
+  </div>
+
+
+
+
+
+
+
+
+   
+
+    <script>
+        function calculateSum() {
+            // Get values from input fields
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+
+            // Calculate the sum
+            const sum = num1 + num2;
+
+            // Display the result in the last label
+            document.getElementById('result').innerText = sum;
+        }
+
+
+        function showArea() {
+    let info = document.getElementById('info');
+    info.style.display = 'block';
+    info.innerHTML = `
+        <p>A circle is a closed shape formed by a set of points where the distance from a central point (the center) is equal to a certain value (the radius).</p>
+        <p>The area of a circle is given by the formula: A = πr^2</p>
+        <p>Where A is the area and r is the radius.</p>
+    `;
+}
+
+function showCircumference() {
+    let info = document.getElementById('info');
+    info.style.display = 'block';
+    info.innerHTML = `
+        <p>A circle is a closed shape formed by a set of points where the distance from a central point (the center) is equal to a certain value (the radius).</p>
+        <p>The circumference of a circle is given by the formula: C = 2πr</p>
+        <p>Where C is the circumference and r is the radius.</p>
+    `;
+}
+function showArea_s() {
+    let info = document.getElementById('square');
+    info.style.display = 'block';
+    info.innerHTML = `
+        <p>A square is a four sided figure with all sides of equal length.</p>
+        <p>The area of a square is given by the formula: A = s^2</p>
+        <p>Where A is the area and s is the length of a side.</p>
+    `;
+}
+
+function showPerimeter_s() {
+    let info = document.getElementById('square');
+    info.style.display = 'block';
+    info.innerHTML = `
+        <p>A square is a four sided figure with all sides of equal length.</p>
+        <p>The perimeter of a square is given by the formula: P = 4s</p>
+        <p>Where P is the perimeter and s is the length of a side.</p>
+    `;
+}
+function showPerimeter_t() {
+            let info = document.getElementById('triangle');
+            info.style.display = 'block';
+            info.innerHTML = `
+                <p>A triangle is a three sided figure.</p>
+                <p>The perimeter of a triangle is given by the formula: P = a + b + c</p>
+                <p>Where P is the perimeter and a, b, and c are the lengths of the sides.</p>
+            `;
+        }
+
+        function showArea_t() {
+            let info = document.getElementById('triangle');
+            info.style.display = 'block';
+            info.innerHTML = `
+                <p>The area of a triangle can be calculated using Heron's Formula.</p>
+                <p>Heron's Formula is given by A = sqrt[s(s - a)(s - b)(s - c)]</p>
+                <p>Where A is the area, s is the semi-perimeter and a, b, and c are the lengths of the sides.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
